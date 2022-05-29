@@ -1,5 +1,6 @@
 asgiref==3.4.1
 Django==3.2.13
+django-crispy-forms==1.13.0
 Faker==4.0.0
 mixer==7.0.6
 python-dateutil==2.8.2
