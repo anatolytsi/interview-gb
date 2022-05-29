@@ -17,6 +17,11 @@
                             <p class="card-text">
                                 Поставщик: {{ obj.provider }}
                             </p>
+                            {% if obj.categories.all %}
+                                <p class="card-text">
+                                    Категории: {{ obj.categories.all|join:", " }}
+                                </p>
+                            {% endif %}
                         </div>
                     </div>
                 </a>
