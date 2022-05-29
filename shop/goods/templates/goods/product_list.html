@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row m-auto justify-content-md-center">
+            {% for obj in object_list %}
+                <a href="#" class="card col-md-4 m-2"
+                   style="text-decoration: none; color: #212529;">
+                    <div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ obj.name }}</h5>
+                            <p class="card-text">
+                                Дата поступления: {{ obj.delivery_date|date:'d.m.Y' }}
+                            </p>
+                            <p class="card-text">
+                                Цена: {{ obj.price }} {{ obj.units }}
+                            </p>
+                            <p class="card-text">
+                                Поставщик: {{ obj.provider }}
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+            <a href="#" class="card col-md-4 m-2 border border-primary"
+               style="text-decoration: none; border: 2px dashed #007bff !important;">
+                <div>
+                    <div class="card-body">
+                        <i class="fa fa-plus d-flex justify-content-center" style="font-size: 4em; color: #007bff"
+                           aria-hidden="true"></i>
+                        <h5 class="card-title d-flex justify-content-center" style="color: #007bff">Добавить товар</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+{% endblock %}
