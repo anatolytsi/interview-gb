@@ -15,11 +15,14 @@ Including another URLconf
 """
 from django.urls import path
 
-from .views import ProductList, ProductCreate
+from .views import ProductList, ProductCreate, CategoryList, CategoryCreate, ProductsCategoryList
 
 app_name = 'goods'
 
 urlpatterns = [
     path('', ProductList.as_view(), name='product_list'),
     path('create/', ProductCreate.as_view(), name='product_create'),
+    path('category/', CategoryList.as_view(), name='category_list'),
+    path('category/<int:pk>/', ProductsCategoryList.as_view(), name='category_products'),
+    path('category/create/', CategoryCreate.as_view(), name='category_create'),
 ]

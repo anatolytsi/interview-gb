@@ -28,3 +28,11 @@ class ProductForm(forms.ModelForm):
         self.fields['categories'].queryset = ProductCategory.objects.all()
         for field in self.fields:
             self.fields[field].widget.attrs['class'] = 'form-control'
+
+
+class ProductCategoryForm(forms.ModelForm):
+    class Meta:
+        model = ProductCategory
+        fields = (
+            'name',
+        )

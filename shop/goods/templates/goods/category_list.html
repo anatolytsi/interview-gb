@@ -2,33 +2,19 @@
 {% block content %}
     <div class="container">
         <div class="row justify-content-md-center mt-5">
-            <div class="col-lg-9">
-                <div class="row m-auto justify-content-md-center mt-5">
+            <div class="col-lg-8">
+                <div class="row m-auto justify-content-md-center">
                     {% for obj in object_list %}
-                        <a href="#" class="card col-md-4 m-2"
+                        <a href="{% url 'goods:category_products' obj.id %}" class="card col-md-4 m-2"
                            style="text-decoration: none; color: #212529;">
                             <div>
                                 <div class="card-body">
                                     <h5 class="card-title">{{ obj.name }}</h5>
-                                    <p class="card-text">
-                                        Дата поступления: {{ obj.delivery_date|date:'d.m.Y' }}
-                                    </p>
-                                    <p class="card-text">
-                                        Цена: {{ obj.price }} {{ obj.units }}
-                                    </p>
-                                    <p class="card-text">
-                                        Поставщик: {{ obj.provider }}
-                                    </p>
-                                    {% if obj.categories.all %}
-                                        <p class="card-text">
-                                            Категории: {{ obj.categories.all|join:", " }}
-                                        </p>
-                                    {% endif %}
                                 </div>
                             </div>
                         </a>
                     {% endfor %}
-                    <a href="{% url 'goods:product_create' %}" class="card col-md-4 m-2 border border-primary"
+                    <a href="{% url 'goods:category_create' %}" class="card col-md-4 m-2 border border-primary"
                        style="text-decoration: none; border: 2px dashed #007bff !important;">
                         <div>
                             <div class="card-body">
@@ -36,7 +22,7 @@
                                    style="font-size: 4em; color: #007bff"
                                    aria-hidden="true"></i>
                                 <h5 class="card-title d-flex justify-content-center" style="color: #007bff">Добавить
-                                    товар</h5>
+                                    категорию</h5>
                             </div>
                         </div>
                     </a>
