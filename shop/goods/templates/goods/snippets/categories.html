@@ -1,0 +1,11 @@
+<div class="list-group">
+    <button type="button" class="list-group-item list-group-item-action active">
+        Категории
+    </button>
+    {% for category in product_categories %}
+        <a href="{% url 'goods:category_products' category.id %}"
+           class="list-group-item list-group-item-action">
+            {{ category.name }}
+        </a>
+    {% endfor %}
+</div>
