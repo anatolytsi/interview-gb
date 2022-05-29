@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     # custom apps
     'goods',
+    'visits',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +54,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'visits.views.VisitsMiddleware',
 ]
 
 ROOT_URLCONF = 'shop.urls'
@@ -69,6 +72,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'shop.context_processor.product_categories',
+                'shop.context_processor.site_visits',
             ],
         },
     },
