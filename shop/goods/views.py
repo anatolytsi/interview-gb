@@ -8,6 +8,7 @@ from .models import Product, ProductCategory
 class ProductList(ListView):
     model = Product
     extra_context = {'title': 'Список товаров'}
+    queryset = Product.on_site.prefetch_related('categories').all()
 
 
 class ProductCreate(CreateView):
@@ -21,6 +22,7 @@ class ProductCreate(CreateView):
 class ProductsCategoryList(ListView):
     model = Product
     extra_context = {'title': 'Товары категории'}
+    queryset = Product.on_site.prefetch_related('categories').all()
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -33,6 +35,7 @@ class CategoryList(ListView):
     model = ProductCategory
     template_name = 'goods/category_list.html'
     extra_context = {'title': 'Список категорий'}
+    queryset = ProductCategory.on_site.all()
 
 
 class CategoryCreate(CreateView):
