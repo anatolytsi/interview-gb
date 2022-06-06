@@ -1,3 +1,3 @@
-from .development import *
+from .prod import *
 
 SITE_ID = 1
